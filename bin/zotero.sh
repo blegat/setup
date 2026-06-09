@@ -4,7 +4,7 @@ source "$SCRIPT_DIR/lib.sh"
 
 desc="Install Zotero via flatpak"
 if flatpak list --app --columns=application 2>/dev/null | grep -qx org.zotero.Zotero; then
-  ok "$desc (already done)"
+  ok "$desc"
 else
   doing "$desc"
   omarchy-pkg-add flatpak

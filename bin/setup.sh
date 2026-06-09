@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_SRC="$(cd "$SCRIPT_DIR/.." && pwd)"
 source "$SCRIPT_DIR/lib.sh"
 
 link "Register custom.sh as omarchy post-update hook" \
   "$SCRIPT_DIR/custom.sh" "$HOME/.config/omarchy/hooks/post-update.d"
+
+ensure_line "Source profile.sh from ~/.bashrc" \
+  "$HOME/.bashrc" "source $ROOT_SRC/profile.sh"
 
 "$SCRIPT_DIR/latex.sh"
 "$SCRIPT_DIR/zotero.sh"

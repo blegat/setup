@@ -29,7 +29,7 @@ link() {
   fi
 
   if [ -L "$dst" ] && [ "$(readlink "$dst")" = "$src" ]; then
-    ok "$desc (already done)"
+    ok "$desc"
     return 0
   fi
 
@@ -40,4 +40,18 @@ link() {
 
   doing "$desc"
   ln -s "$src" "$dst"
+}
+
+ensure_line() {
+  local desc="$1"
+  local file="$2"
+  local line="$3"
+
+  if [ -f "$file" ] && grep -Fxq "$line" "$file"; then
+    ok "$desc"
+    return 0
+  fi
+
+  doing "$desc"
+  echo "$line" >>"$file"
 }
