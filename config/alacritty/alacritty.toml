@@ -1,3 +1,5 @@
+# [REPLACES_COPY_OF] ~/.local/share/omarchy/config/alacritty/alacritty.toml
+
 [general]
 import = ["~/.local/share/omarchy/config/alacritty/alacritty.toml"]
 

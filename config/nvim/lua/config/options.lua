@@ -1,3 +1,5 @@
+-- [REPLACES_COPY_OF] /usr/share/omarchy-nvim/config/lua/config/options.lua
+
 dofile("/usr/share/omarchy-nvim/config/lua/config/options.lua")
 
 vim.opt.tabstop = 4
