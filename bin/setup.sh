@@ -9,6 +9,10 @@ link "Register custom.sh as omarchy post-update hook" \
 ensure_line "Source profile.sh from ~/.bashrc" \
   "$HOME/.bashrc" "source $ROOT_SRC/profile.sh"
 
+reset_default "Clear unmodified default alacritty.toml so config.sh can symlink" \
+  "$HOME/.config/alacritty/alacritty.toml" \
+  "$HOME/.local/share/omarchy/config/alacritty/alacritty.toml"
+
 "$SCRIPT_DIR/julia.sh"
 "$SCRIPT_DIR/latex.sh"
 "$SCRIPT_DIR/zotero.sh"

@@ -42,6 +42,24 @@ link() {
   ln -s "$src" "$dst"
 }
 
+reset_default() {
+  local desc="$1"
+  local file="$2"
+  local default="$3"
+
+  if [ ! -e "$file" ] || [ -L "$file" ]; then
+    return 0
+  fi
+
+  if cmp -s "$file" "$default"; then
+    doing "$desc"
+    rm "$file"
+  else
+    fail "$desc: $file differs from default $default — please review and remove manually"
+    exit 1
+  fi
+}
+
 ensure_line() {
   local desc="$1"
   local file="$2"

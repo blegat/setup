@@ -1,0 +1,10 @@
+[general]
+import = ["~/.local/share/omarchy/config/alacritty/alacritty.toml"]
+
+# Need to make Shift+Enter using Kitty convention to make shift+enter -> REPLSmuggler.jl work:
+[keyboard]
+bindings = [
+  { key = "Return", mods = "Shift",         chars = "\u001b[13;2u" },
+  { key = "Return", mods = "Control",       chars = "\u001b[13;5u" },
+  { key = "Return", mods = "Control|Shift", chars = "\u001b[13;6u" },
+]
