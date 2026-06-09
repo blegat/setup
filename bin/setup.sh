@@ -9,6 +9,7 @@ link "Register custom.sh as omarchy post-update hook" \
 ensure_line "Source profile.sh from ~/.bashrc" \
   "$HOME/.bashrc" "source $ROOT_SRC/profile.sh"
 
+"$SCRIPT_DIR/julia.sh"
 "$SCRIPT_DIR/latex.sh"
 "$SCRIPT_DIR/zotero.sh"
 "$SCRIPT_DIR/config.sh"
